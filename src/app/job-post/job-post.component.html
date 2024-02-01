@@ -1,0 +1,21 @@
+<main *ngIf="jobPost$ | async as jobPost">
+
+<!--  <pre>-->
+<!--    {{ jobPost | json }}-->
+<!--  </pre>-->
+
+  <div class="job-container">
+    <!--    <img [src]="jobPost.fields.featuredImage.fields.file.url" alt="">-->
+
+    <h3>{{ jobPost.fields.role}}</h3>
+    <p class="company">{{ jobPost.fields.organization}}</p>
+    <p class="company">Date posted: {{ jobPost.fields.date}}</p>
+    <p class="company">{{ jobPost.fields.description}}</p>
+    <li class="skills" *ngFor="let skill of jobPost.fields.skills">{{ skill }}</li>
+    <a [routerLink]="['job', jobPost.sys.id]" >Learn more</a>
+    <a [routerLink]="['']" >Return home</a>
+  </div>
+
+</main>
+
+
